@@ -1,38 +1,6 @@
-"use client";
-import { useEffect } from "react";
-import { init } from "@sitecore/engage";
 import Image from "next/image";
 
 export default function Home() {
-  const engageSettings = {
-    clientKey: "pqsgpjgk83albxu3gw5k31mh2k1tk6uq",
-    targetURL: "https://api-engage-eu.sitecorecloud.io",
-    pointOfSale: "BensDepot",
-    forceServerCookieMode: true,
-    includeUTMParameters: true,
-    webPersonalization: false /* boolean or object. See Settings object for all options. Default: false */,
-  };
-
-  const loadEngage = async () => {
-    console.log("Loading Engage API...");
-    // Load Engage API
-    const engage = await init(engageSettings);
-    
-    // Send VIEW events
-    engage.pageView({
-      channel: "WEB",
-      currency: "USD"
-    });
-
-    // For testing and debugging purposes only
-    console.log("Copy-paste the following line into Sitecore CDP > Guests > Search field:");
-    console.log("bid:", engage.getBrowserId());
-  };
-
-  useEffect(() => {
-    loadEngage();
-  }, []);
-
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">

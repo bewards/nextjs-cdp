@@ -10,9 +10,9 @@ export async function middleware(request: NextRequest) {
 
   const response = NextResponse.next();
   const engageSettings = {
-    clientKey: process.env.ENGAGE_CLIENT_KEY || '',
-    targetURL: process.env.ENGAGE_TARGET_URL || '',
-    pointOfSale: process.env.ENGAGE_POS || '',
+    clientKey: process.env.NEXT_PUBLIC_ENGAGE_CLIENT_KEY || '',
+    targetURL: process.env.NEXT_PUBLIC_ENGAGE_TARGET_URL || '',
+    pointOfSale: process.env.NEXT_PUBLIC_ENGAGE_POS || '',
     // cookieDomain: "<cookie_domain_PLACEHOLDER>",
     cookieExpiryDays: 365,
     forceServerCookieMode: true,

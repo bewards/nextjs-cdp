@@ -8,14 +8,18 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-Create a Local .env at the root with the required Engage attributes:
+### Create a Local .env at the root with the required Engage attributes
 ```.env
 ENGAGE_CLIENT_KEY=your_value
-ENGAGE_TARGET_URL=your_value # ex: https://api-engage-eu.sitecorecloud.io
+ENGAGE_TARGET_URL=your_value                # ex: https://api-engage-eu.sitecorecloud.io
 ENGAGE_POS=your_value
+NEXT_PUBLIC_ENGAGE_IDENTITY=your_value      # ex: DepotProvider_ID
 ```
 
-Run the development server:
+### Setup Identity Rule in CDP
+The code base is configured to send IDENTITY events through the ENV variable `NEXT_PUBLIC_ENGAGE_IDENTITY`. This Identity Provider will need to be added as a rule in your CDP if you want IDENTITY events to convert Visitors to Customers.
+
+### Run the development server
 
 ```bash
 npm run dev

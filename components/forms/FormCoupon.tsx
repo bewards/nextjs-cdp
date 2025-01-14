@@ -1,5 +1,8 @@
+"use client";
+
 import { useEngageStore } from "@/providers/engage-provider-store";
 import { FormEvent, useState } from "react";
+import { hashText } from "@/utils/stringHelpers";
 
 const FormCoupon = () => {
   const [email, setEmail] = useState("");
@@ -12,16 +15,19 @@ const FormCoupon = () => {
     console.log("Form submitted:", { email, interest });
 
     if (engage) {
-      console.log("Sending coupon form data to Engage API...");
+      const uuid = hashText(email);
+      console.log(`Sending FormCoupon data to Engage API. UUID (from email): ${uuid}`);
       engage.identity(
         {
           email,
           channel: "WEB",
           currency: "USD",
+          language: "en",
+          page: "home",
           identifiers: [
             {
-              id: "226691",
-              provider: "BensDepotProvider",
+              id: uuid,
+              provider: process.env.NEXT_PUBLIC_ENGAGE_IDENTITY || "",
             },
           ],
         },
