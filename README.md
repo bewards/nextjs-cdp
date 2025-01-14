@@ -19,6 +19,8 @@ NEXT_PUBLIC_ENGAGE_IDENTITY=your_value      # ex: DepotProvider_ID
 ### Setup Identity Rule in CDP
 The code base is configured to send IDENTITY events through the ENV variable `NEXT_PUBLIC_ENGAGE_IDENTITY`. This Identity Provider will need to be added as a rule in your CDP if you want IDENTITY events to convert Visitors to Customers.
 
+![CDP Identity Rules > Add Rule](docs/cdp_identity-rules.png)
+
 ### Run the development server
 
 ```bash

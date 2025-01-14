@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { EngageStoreProvider } from "@/providers/engage-provider-store";
-import EngagePageView from "@/components/engage/EngagePageView";
+import EngagePageView from "@/components/engage/engage-page-view";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
