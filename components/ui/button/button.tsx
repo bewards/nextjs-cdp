@@ -15,14 +15,17 @@ const buttonVariants = cva(
         destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-        ghost: "rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5",
+        ghost:
+          "rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5",
         link: "text-primary underline-offset-4 hover:underline",
+        none: "",
       },
       size: {
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
         icon: "size-9",
+        none: "",
       },
     },
     defaultVariants: {
@@ -46,7 +49,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <Comp className={cn(buttonVariants({ variant, size, className }))} ref={ref} {...props}>
         {isLoading && <Spinner size="sm" className="text-current" />}
         {!isLoading && icon && <span className="mr-2">{icon}</span>}
-        <span className="mx-2">{children}</span>
+        <span className={icon ? "" : "mx-2"}>{children}</span>
       </Comp>
     );
   }

@@ -6,6 +6,7 @@ import { StoreApi } from "zustand";
 export type EngageState = {
   engage: Engage | null;
   createdAt?: Date;
+  searches: string[];
 };
 
 export type EngageActions = {
@@ -13,18 +14,23 @@ export type EngageActions = {
 
   // direct HTTPS actions:
   simulateNewUserPageViews: () => Promise<void>;
+
+  // misc actions
+  addSearchQuery: (search: string) => void;
 };
 
 export type EngageStore = EngageState & EngageActions;
 
 export const defaultEngageState: EngageState = {
   engage: null,
+  searches: [],
 };
 
 export const initEngageStore = (): EngageState => {
   return {
     engage: null,
     createdAt: new Date(),
+    searches: [],
   };
 };
 
@@ -78,5 +84,7 @@ export const createEngageStore = (initState: EngageState = defaultEngageState): 
         console.error("Error simulating new user page views", error);
       }
     },
+
+    addSearchQuery: (search) => set((state) => ({ searches: [...state.searches, search] })),
   }));
 };
