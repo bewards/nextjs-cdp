@@ -100,13 +100,13 @@ const MainHeader: React.FC = () => {
         </div>
       </div>
       {menuOpen && (
-        <div className="md:hidden mt-2">
+        <div className="md:hidden mt-2 flex flex-col gap-2 pt-4 mt-4 border-t border-slate-500">
           <Link
             href={"/products"}
             className={
               currentPath === "/products"
-                ? "hidden md:block text-lg text-emerald-400 font-semibold"
-                : "hidden md:block text-lg"
+                ? "text-lg text-emerald-400 font-semibold"
+                : "text-lg"
             }
           >
             Products
@@ -115,8 +115,8 @@ const MainHeader: React.FC = () => {
             href={"/appliances"}
             className={
               currentPath === "/appliances"
-                ? "hidden md:block text-lg text-emerald-400 font-semibold"
-                : "hidden md:block text-lg"
+                ? "text-lg text-emerald-400 font-semibold"
+                : "text-lg"
             }
           >
             Appliances
