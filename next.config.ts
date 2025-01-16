@@ -1,7 +1,12 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // serverExternalPackages: ["node:crypto"],
+  // experimental: {
+  //   turbo: {
+  //     loaders
+  //   },
+  // },
 };
 
 export default nextConfig;

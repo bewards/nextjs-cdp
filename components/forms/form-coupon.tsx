@@ -40,7 +40,7 @@ const FormCoupon = () => {
 
   return (
     <form onSubmit={handleSubmit} className="max-w-xxl mx-auto p-6 rounded-md shadow-md">
-      <legend className="text-4xl font-extrabold dark:text-white mb-1">IDENTITY</legend>
+      <legend className="text-4xl font-extrabold dark:text-white mb-3">🆔 IDENTITY event</legend>
       <div className="mb-4">
         <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
           Choose Your Home Improvement Interest for 20% Off Your Next Order!

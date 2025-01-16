@@ -23,8 +23,6 @@ export const EngageStoreProvider = ({ children }: EngageStoreProviderProps) => {
   useEffect(() => {
     updateEngageStore().then((state) => {
       storeRef.current?.setState(state);
-
-      
     });
   });
 

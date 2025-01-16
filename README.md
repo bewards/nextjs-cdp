@@ -3,17 +3,20 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 🐻 The Engage SDK is managed using [Zustand State Management](https://github.com/pmndrs/zustand)
 
 ✨ Current Feature List
-- Page Views
-- IDENTITY event via Simple Form (FormCoupon)
+- Current User Tracking via Engage SDK
+    - VIEW event configured at Layout
+    - IDENTITY event via Simple Form (FormCoupon)
+- Simulating Events via Stream API Direct HTTPS Requests
+    - Simulating 10 new guests with page view
 
 ## Getting Started
 
 ### Create a Local .env at the root with the required Engage attributes
 ```.env
-ENGAGE_CLIENT_KEY=your_value
-ENGAGE_TARGET_URL=your_value                # ex: https://api-engage-eu.sitecorecloud.io
-ENGAGE_POS=your_value
-NEXT_PUBLIC_ENGAGE_IDENTITY=your_value      # ex: DepotProvider_ID
+NEXT_PUBLIC_ENGAGE_CLIENT_KEY=your_value
+NEXT_PUBLIC_ENGAGE_TARGET_URL=your_value                # ex: https://api-engage-eu.sitecorecloud.io
+NEXT_PUBLIC_ENGAGE_POS=your_value
+NEXT_PUBLIC_ENGAGE_IDENTITY=your_value                  # ex: DepotProvider_ID
 ```
 
 ### Setup Identity Rule in CDP
