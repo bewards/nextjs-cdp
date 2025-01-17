@@ -1,6 +1,7 @@
 import Image from "next/image";
-import FormCoupon from "@/components/forms/form-coupon";
-import EngageSimulateNewGuests from "@/components/engage/engage-simulate-new-guests";
+import FormCoupon from "@/components/features/forms/form-coupon";
+import EngageSimulateNewGuests from "@/components/features/engage/engage-simulate-new-guests";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -15,20 +16,28 @@ export default function Home() {
           priority
         />
         <section className="instructions max-w-2xl m-auto">
-          <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <ol className="list-inside list-decimal text-sm md:text-lg text-center sm:text-left">
             <li className="mb-2">
               Get started by configuring your CDP settings by reviewing the{" "}
               <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">README</code>
             </li>
             <li>Interact with the site and see your Guest data in real-time!</li>
             <ul className="list-disc ms-10">
-              <li>Use the IDENTITY form below to convert Visitor to Customer</li>
-              <li>Use the search bar to send SEARCH type event</li>
+              <li>
+                Use the form below to convert Visitor to Customer with <code>IDENTITY</code> event
+              </li>
+              <li>
+                Use the search bar to send custom <code>POS:SITE_SEARCH</code> type event
+              </li>
               <li>
                 Click the Simulate 10 New Visitors button to kick off Stream Direct HTTPS Requests to create new
-                visitors and simulate page views
+                visitors and simulate <code>VIEW</code> events with randomized channels
               </li>
             </ul>
+            <li>
+              Head over to the <Link href={"/shop"}>Shop page</Link> to add items to your cart and send ADD events to
+              CDP.
+            </li>
           </ol>
         </section>
 

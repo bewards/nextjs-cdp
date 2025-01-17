@@ -1,4 +1,6 @@
 import type { Config } from "tailwindcss";
+import tailwindPresetMantine from "tailwind-preset-mantine";
+import { breakpoints, colors } from "./app/theme";
 
 export default {
   content: [
@@ -13,6 +15,12 @@ export default {
         foreground: "var(--foreground)",
       },
     },
+    plugins: [],
   },
-  plugins: [],
+  presets: [
+    tailwindPresetMantine({
+      mantineBreakpoints: breakpoints,
+      mantineColors: colors,
+    }),
+  ],
 } satisfies Config;

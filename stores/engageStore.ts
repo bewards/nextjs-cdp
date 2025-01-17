@@ -2,11 +2,17 @@ import { Engage, ICdpResponse } from "@sitecore/engage";
 import { createStore } from "zustand/vanilla";
 import { init } from "@sitecore/engage";
 import { StoreApi } from "zustand";
+import { CartProduct } from "@/types/cart";
+import { ApiProduct } from "@/types/api";
 
 export type EngageState = {
   engage: Engage | null;
   createdAt?: Date;
   searches: string[];
+};
+
+export type CartState = {
+  cartItems: CartProduct[];
 };
 
 export type EngageActions = {
@@ -17,20 +23,25 @@ export type EngageActions = {
 
   // misc actions
   addSearchQuery: (search: string) => void;
+
+  // cart actions
+  addItemToCart: (item: ApiProduct) => void;
 };
 
-export type EngageStore = EngageState & EngageActions;
+export type EngageStore = EngageState & EngageActions & CartState;
 
-export const defaultEngageState: EngageState = {
+export const defaultEngageState: EngageState & CartState = {
   engage: null,
   searches: [],
+  cartItems: [],
 };
 
-export const initEngageStore = (): EngageState => {
+export const initEngageStore = (): EngageState & CartState => {
   return {
     engage: null,
     createdAt: new Date(),
     searches: [],
+    cartItems: [],
   };
 };
 
@@ -54,7 +65,7 @@ export const updateEngageStore = async () => {
   }
 };
 
-export const createEngageStore = (initState: EngageState = defaultEngageState): StoreApi<EngageStore> => {
+export const createEngageStore = (initState: EngageState & CartState = defaultEngageState): StoreApi<EngageStore> => {
   return createStore<EngageStore>((set) => ({
     ...initState,
     setEngage: (engage) => set((_state) => ({ engage: engage })),
@@ -86,5 +97,43 @@ export const createEngageStore = (initState: EngageState = defaultEngageState): 
     },
 
     addSearchQuery: (search) => set((state) => ({ searches: [...state.searches, search] })),
+
+    addItemToCart: (item: ApiProduct) =>
+      set((state) => {
+        let itemExists = state.cartItems.find((cartItem) => cartItem.productId === item.productId);
+        let newState = null;
+
+        if (itemExists) {
+          if (typeof itemExists.quantity === "number") {
+            itemExists.quantity++;
+          }
+          newState = { cartItems: [...state.cartItems] };
+        } else {
+          itemExists = { ...item, quantity: 1, dateAdded: new Date() };
+          newState = { cartItems: [...state.cartItems, itemExists] };
+        }
+        state.engage
+          ?.event("ADD", {
+            channel: "WEB",
+            currency: "USD",
+            language: "EN",
+            page: "SHOP",
+            product: {
+              name: itemExists.name,
+              type: itemExists.category,
+              item_id: itemExists.sku,
+              productId: itemExists.productId,
+              referenceId: itemExists.sku,
+              orderedAt: itemExists.dateAdded.toISOString(),
+              quantity: itemExists.quantity,
+              price: itemExists.price,
+              currency: "USD",
+            },
+          })
+          .then((response) => {
+            console.log("Engage event ADD success", response);
+          });
+        return newState;
+      }),
   }));
 };

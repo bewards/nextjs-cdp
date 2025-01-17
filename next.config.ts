@@ -1,12 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // serverExternalPackages: ["node:crypto"],
-  // experimental: {
-  //   turbo: {
-  //     loaders
-  //   },
-  // },
+  experimental: {
+    optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
+  },
 };
 
 export default nextConfig;

@@ -1,18 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import Head from "next/head";
+import { ColorSchemeScript, createTheme, DEFAULT_THEME, MantineProvider, mergeMantineTheme } from "@mantine/core";
+import localFont from "next/font/local";
 import { EngageStoreProvider } from "@/providers/engage-provider-store";
-import EngagePageView from "@/components/engage/engage-page-view";
-import MainHeader from "@/components/navigation/header";
+import EngagePageView from "@/components/features/engage/engage-page-view";
+import MainHeader from "@/components/features/navigation/header";
+import "./globals.css";
+import { breakpoints, colors } from "./theme";
 
-const geistSans = Geist({
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  weight: "100 900",
 });
-
-const geistMono = Geist_Mono({
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
@@ -20,19 +24,35 @@ export const metadata: Metadata = {
   description: "A create next app built for generating Sitecore CDP data",
 };
 
+// Mantine UI theme
+const theme = mergeMantineTheme(
+  DEFAULT_THEME,
+  createTheme({
+    fontFamily: geistSans.style.fontFamily,
+    fontFamilyMonospace: geistMono.style.fontFamily,
+    breakpoints,
+    colors,
+  })
+);
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <EngageStoreProvider>
-          <MainHeader />
-          {children}
-          <EngagePageView />
-        </EngageStoreProvider>
+    <html lang="en" suppressHydrationWarning>
+      <Head>
+        <ColorSchemeScript />
+      </Head>
+      <body className={`antialiased`}>
+        <MantineProvider theme={theme} defaultColorScheme="dark">
+          <EngageStoreProvider>
+            <MainHeader />
+            {children}
+            <EngagePageView />
+          </EngageStoreProvider>
+        </MantineProvider>
       </body>
     </html>
   );

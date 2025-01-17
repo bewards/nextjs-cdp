@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Cordless Drill",
+        "sku": "d3b07384-d9a1-4c9b-8d9f-1a2b3c4d5e6f",
+        "productId": "e4f5g6h7-i8j9-0k1l-2m3n-4o5p6q7r8s9t",
+        "category": "Tools",
+        "price": 99.99
+    },
+    {
+        "name": "Circular Saw",
+        "sku": "a1b2c3d4-e5f6-7g8h-9i0j-1k2l3m4n5o6p",
+        "productId": "q7r8s9t0-u1v2-3w4x-5y6z-7a8b9c0d1e2f",
+        "category": "Tools",
+        "price": 149.99
+    },
+    {
+        "name": "Hammer",
+        "sku": "f1g2h3i4-j5k6-7l8m-9n0o-1p2q3r4s5t6u",
+        "productId": "v7w8x9y0-z1a2-3b4c-5d6e-7f8g9h0i1j2k",
+        "category": "Tools",
+        "price": 19.99
+    },
+    {
+        "name": "Electric Sander",
+        "sku": "l1m2n3o4-p5q6-7r8s-9t0u-1v2w3x4y5z6a",
+        "productId": "b7c8d9e0-f1g2-3h4i-5j6k-7l8m9n0o1p2q",
+        "category": "Tools",
+        "price": 79.99
+    },
+    {
+        "name": "Lawn Mower",
+        "sku": "r1s2t3u4-v5w6-7x8y-9z0a-1b2c3d4e5f6g",
+        "productId": "h7i8j9k0-l1m2-3n4o-5p6q-7r8s9t0u1v2w",
+        "category": "Outdoor",
+        "price": 299.99
+    },
+    {
+        "name": "Leaf Blower",
+        "sku": "x1y2z3a4-b5c6-7d8e-9f0g-1h2i3j4k5l6m",
+        "productId": "n7o8p9q0-r1s2-3t4u-5v6w-7x8y9z0a1b2c",
+        "category": "Outdoor",
+        "price": 89.99
+    },
+    {
+        "name": "Pressure Washer",
+        "sku": "p1q2r3s4-t5u6-7v8w-9x0y-1z2a3b4c5d6e",
+        "productId": "f7g8h9i0-j1k2-3l4m-5n6o-7p8q9r0s1t2u",
+        "category": "Outdoor",
+        "price": 199.99
+    },
+    {
+        "name": "Paint Sprayer",
+        "sku": "u1v2w3x4-y5z6-7a8b-9c0d-1e2f3g4h5i6j",
+        "productId": "k7l8m9n0-o1p2-3q4r-5s6t-7u8v9w0x1y2z",
+        "category": "Painting",
+        "price": 129.99
+    },
+    {
+        "name": "Paint Roller",
+        "sku": "m1n2o3p4-q5r6-7s8t-9u0v-1w2x3y4z5a6b",
+        "productId": "c7d8e9f0-g1h2-3i4j-5k6l-7m8n9o0p1q2r",
+        "category": "Painting",
+        "price": 14.99
+    },
+    {
+        "name": "Paint Brush Set",
+        "sku": "s1t2u3v4-w5x6-7y8z-9a0b-1c2d3e4f5g6h",
+        "productId": "i7j8k9l0-m1n2-3o4p-5q6r-7s8t9u0v1w2x",
+        "category": "Painting",
+        "price": 24.99
+    },
+    {
+        "name": "Electric Screwdriver",
+        "sku": "o1p2q3r4-s5t6-7u8v-9w0x-1y2z3a4b5c6d",
+        "productId": "e7f8g9h0-i1j2-3k4l-5m6n-7o8p9q0r1s2t",
+        "category": "Tools",
+        "price": 39.99
+    },
+    {
+        "name": "Table Saw",
+        "sku": "v1w2x3y4-z5a6-7b8c-9d0e-1f2g3h4i5j6k",
+        "productId": "l7m8n9o0-p1q2-3r4s-5t6u-7v8w9x0y1z2a",
+        "category": "Tools",
+        "price": 249.99
+    },
+    {
+        "name": "Air Compressor",
+        "sku": "y1z2a3b4-c5d6-7e8f-9g0h-1i2j3k4l5m6n",
+        "productId": "o7p8q9r0-s1t2-3u4v-5w6x-7y8z9a0b1c2d",
+        "category": "Tools",
+        "price": 179.99
+    },
+    {
+        "name": "Cordless Jigsaw",
+        "sku": "b1c2d3e4-f5g6-7h8i-9j0k-1l2m3n4o5p6q",
+        "productId": "r7s8t9u0-v1w2-3x4y-5z6a-7b8c9d0e1f2g",
+        "category": "Tools",
+        "price": 89.99
+    },
+    {
+        "name": "Tile Cutter",
+        "sku": "d1e2f3g4-h5i6-7j8k-9l0m-1n2o3p4q5r6s",
+        "productId": "t7u8v9w0-x1y2-3z4a-5b6c-7d8e9f0g1h2i",
+        "category": "Tools",
+        "price": 59.99
+    },
+    {
+        "name": "Cordless Impact Driver",
+        "sku": "f1g2h3i4-j5k6-7l8m-9n0o-1p2q3r4s5t6u",
+        "productId": "z7w8h9y0-z1a2-3b4c-5d6e-7f8g9h0i1c2a",
+        "category": "Tools",
+        "price": 129.99
+    },
+    {
+        "name": "Workbench",
+        "sku": "h1i2j3k4-l5m6-7n8o-9p0q-1r2s3t4u5v6w",
+        "productId": "x7y8z9a0-b1c2-3d4e-5f6g-7h8i9j0k1l2m",
+        "category": "Tool storage",
+        "price": 199.99
+    },
+    {
+        "name": "Tool Chest",
+        "sku": "j1k2l3m4-n5o6-7p8q-9r0s-1t2u3v4w5x6y",
+        "productId": "z7a8b9c0-d1e2-3f4g-5h6i-7j8k9l0m1n2o",
+        "category": "Storage",
+        "price": 299.99
+    },
+    {
+        "name": "Ladder",
+        "sku": "l1m2n3o4-p5q6-7r8s-9t0u-1v2w3x4y5z6a",
+        "productId": "j7n8d7e1-f1g2-3h4i-5j6k-7l8m9n0o1p2q",
+        "category": "Tools",
+        "price": 79.99
+    },
+    {
+        "name": "Shop Vacuum",
+        "sku": "n1o2p3q4-r5s6-7t8u-9v0w-1x2y3z4a5b6c",
+        "productId": "d7e8f9g0-h1i2-3j4k-5l6m-7n8o9p0q1r2s",
+        "category": "Cleaning",
+        "price": 99.99
+    }
+]
