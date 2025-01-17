@@ -1,13 +1,15 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and [Sitecore Engage SDK package](https://doc.sitecore.com/cdp/en/developers/api/integrate-engage-sdk-nextjs-server-side.html) (server-set cookies).
 
-🐻 The Engage SDK is managed using [Zustand State Management](https://github.com/pmndrs/zustand)
+🐻 Engage SDK managed using [Zustand State Management](https://github.com/pmndrs/zustand) <br>
+Ⓜ️ Thoughtfully crafted using Tailwind &amp; Mantine
 
 ✨ Current Feature List
 - Current User Tracking via Engage SDK
-    - VIEW event configured at Layout
+    - VIEW event configured at Layout with Zustand Provider
     - IDENTITY event via Simple Form (FormCoupon)
 - Simulating Events via Stream API Direct HTTPS Requests
     - Simulating 10 new guests with page view
+- Add to cart for ADD event configured
 
 ## Getting Started
 
@@ -36,5 +38,5 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser to start sending data to your CDP!
 
