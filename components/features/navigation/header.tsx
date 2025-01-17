@@ -6,6 +6,7 @@ import Link from "next/link";
 import { FaBars, FaTools } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { RiShoppingBag3Line } from "react-icons/ri";
+import { IoPersonCircle } from "react-icons/io5";
 import SearchBar from "./search-bar";
 import { ColorSchemesSwitcher } from "@/components/ui/color-schemes-switcher";
 import CartNav from "./cart-nav";
@@ -22,6 +23,17 @@ const MainHeader: React.FC = () => {
             <FaTools className={currentPath === "/" ? "text-2xl me-5 text-emerald-500" : "text-2xl me-5"} />
           </Link>
           <nav className="flex gap-4 justify-between ms-3">
+            <Link
+              href={"/identify"}
+              className={
+                currentPath === "/identify"
+                  ? "hidden md:flex gap-2 text-lg flex items-center text-emerald-400 font-semibold"
+                  : "hidden md:flex gap-2 text-lg flex items-center"
+              }
+            >
+              <IoPersonCircle />
+              Identify
+            </Link>
             <Link
               href={"/shop"}
               className={

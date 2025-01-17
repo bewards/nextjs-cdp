@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, KeyboardEvent } from "react";
 import { usePathname } from "next/navigation";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Button } from "../../ui/button/button";
@@ -12,6 +12,32 @@ const SearchBar: React.FC = () => {
   const { engage, addSearchQuery, searches } = useEngageStore((store) => store);
   const currentPath = usePathname();
 
+  const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      fireSearchEvent();
+    }
+  };
+
+  const fireSearchEvent = () => {
+    const val = searchVal.trim();
+    if (!val) return;
+
+    setIsLoading(true);
+    engage
+      ?.event(`${process.env.NEXT_PUBLIC_ENGAGE_POS}:SITE_SEARCH`, {
+        query: val,
+        channel: "WEB",
+        currency: "USD",
+        page: currentPath,
+      })
+      .then((response) => {
+        addSearchQuery(val);
+        setSearchVal("");
+        setIsLoading(false);
+        console.log("Engage SITE_SEARCH event response", response);
+      });
+  };
+
   return (
     <div className="w-full max-w-sm min-w-[200px]">
       <div className="relative">
@@ -20,6 +46,7 @@ const SearchBar: React.FC = () => {
           placeholder="Send a SEARCH event..."
           value={searchVal}
           onChange={(e) => setSearchVal(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <Button
           variant={"none"}
@@ -27,21 +54,7 @@ const SearchBar: React.FC = () => {
           icon={<AiOutlineSearch />}
           isLoading={isLoading}
           onClick={() => {
-            const val = searchVal.trim();
-            if (!val.length) return;
-            setIsLoading(true);
-            engage
-              ?.event(`${process.env.NEXT_PUBLIC_ENGAGE_POS}:SITE_SEARCH`, {
-                query: val,
-                channel: "WEB",
-                currency: "USD",
-                page: currentPath,
-              })
-              .then(() => {
-                addSearchQuery(val);
-                setSearchVal("");
-                setIsLoading(false);
-              });
+            fireSearchEvent();
           }}
           className="absolute top-1 right-1 flex items-center rounded bg-slate-800 py-1 px-2.5 border border-transparent text-center text-sm text-white transition-all shadow-sm hover:shadow focus:bg-slate-500 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
         >

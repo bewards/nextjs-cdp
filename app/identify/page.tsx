@@ -1,16 +1,11 @@
-import ProductList from "@/components/features/products/product-list";
-import { Text, Title } from "@mantine/core";
+import FormCoupon from "@/components/features/forms/form-coupon";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-0">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Title size="h1">Shop</Title>
-        <Text size="lg">
-          Below is a list of placeholder products that can be added to your cart to send the Engage ADD event to CPD.
-        </Text>
-        <ProductList search="tool" />
+        <FormCoupon />
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a

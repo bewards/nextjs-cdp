@@ -2,7 +2,7 @@
 
 import { useEngageStore } from "@/providers/engage-provider-store";
 import React from "react";
-import { FaShoppingCart } from "react-icons/fa";
+import { PiShoppingCartLight } from "react-icons/pi";
 
 const CartNav: React.FC = () => {
   const { cartItems } = useEngageStore((state) => state);
@@ -10,7 +10,7 @@ const CartNav: React.FC = () => {
   return (
     <>
       <div className="cart-nav flex items-center gap-2">
-        <FaShoppingCart size={28} className={cartItems.length > 0 ? "text-emerald-400" : ""} />
+        <PiShoppingCartLight size={28} className={cartItems.length > 0 ? "text-emerald-400" : ""} />
         <p>{cartCount}</p>
       </div>
     </>
