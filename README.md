@@ -1,3 +1,6 @@
+## CDP Engagement Generator
+Kickstart your CDP Learning Journey by running a locally hosted app that generates all kinds of user activity and pushes it up to your CDP instance!
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) and [Sitecore Engage SDK package](https://doc.sitecore.com/cdp/en/developers/api/integrate-engage-sdk-nextjs-server-side.html) (server-set cookies).
 
 🐻 Engage SDK managed using [Zustand State Management](https://github.com/pmndrs/zustand) <br>
